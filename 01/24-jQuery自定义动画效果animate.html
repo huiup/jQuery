@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="jquery.min.js"></script>
+    <!-- <script src="https://cdn.bootcdn.net/ajax/libs/jquery-color/2.1.2/jquery.color.js"></script> -->
+    <style>
+        div {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <button>动起来</button>
+    <div>123</div>
+    <script>
+        // animate(paarams,[speed],[easing],[fn])
+        /* params:更改的样式属性，以对象形式传递，必须写。
+        属性名可以不用带引号，如果是复合属性则需要采取驼峰命名法borderLeft。
+        其余参数都可以省略。
+        speed：slow,normal,fast或数值毫秒。
+        easing(切换效果)：默认swing(先快后慢)，linear(匀速)
+        fn：回调函数
+        */
+        // animate不能
+        $(function () {
+            $("button").click(function () {
+                $("div").animate({
+                    left: 500,
+                    top: 300,
+                    // opacity: .4,
+                    width: 500,
+                    color: 'red',
+                    backgroundColor: 'blue' //修改不了背景颜色,需要额外插件jquery.color.js
+                }, 2500);
+            })
+        })
+    </script>
+</body>
+
+</html>

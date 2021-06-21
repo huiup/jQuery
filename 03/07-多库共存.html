@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="jquery.min.js"></script>
+    <script>
+        // 通过jquery文件名来查看版本是不靠谱的
+        // 查看jquery的版本
+        console.log(jQuery.prototype.jquery);
+        console.log($.fn.jquery);
+
+        // jQuery使用$作为标示符,其他js库(版本不同)也会用这$作为标识符，这样一起使用会引起冲突。
+        // 为了让jQuery（$）和其他的js库不存在冲突，可以同时存在，这就叫做多库共存。
+
+        $(function () {
+            function $(ele) {
+                return document.querySelector(ele);
+            }
+            console.log($("div"));
+
+            // 先查看当前$的版本
+            console.log($.fn.jquery);
+            // 1. 如果$ 符号冲突 我们就使用 jQuery
+            jQuery.each();
+            // 2. 让jquery释放对$的控制权 让使用者自己决定
+            var _$ = jQuery.noConflict();
+            console.log(_$("span"));
+            _$.each(); // 和$的功能一样
+        })
+
+
+        // 两个库冲突：版本1，版本2（按1、2的顺序导入）
+        // var _$ = $.noConflict() 释放版本2的$，此时的$为版本1的
+        // console.log(_$.fn.jquery); 版本2
+        // console.log(jQuery.fn.jquery); 版本2的jQuery
+        // console.log($.fn.jquery); 版本1
+
+
+
+
+
+        // 若有三个$冲突：版本1，版本2，版本3（按1,2,3的顺序导入，后导入会覆盖先导入）
+        // var $3 = $.noConflict() 先释放版本3的$，此时的$为版本2的
+        // var $2 = $.noConflict() 再释放版本2的$，此时的$为版本1的
+        // console.log($.fn.jquery); 版本1
+        // console.log($2.fn.jquery); 版本2 
+        // console.log($3.fn.jquery); 版本3
+
+    </script>
+</head>
+
+<body>
+    <div></div>
+    <span></span>
+</body>
+
+</html>

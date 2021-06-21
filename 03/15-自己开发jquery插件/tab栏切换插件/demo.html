@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../jquery.min.js"></script>
+    <script src="jquery-tabs.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+        .tab {
+            width: 978px;
+            margin: 100px auto;
+        }
+
+        .tab_head {
+            height: 39px;
+            border: 1px solid #ccc;
+            background-color: #f1f1f1;
+        }
+
+        .tab_head li {
+            float: left;
+            height: 39px;
+            line-height: 39px;
+            padding: 0 20px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .tab_head .current {
+            background-color: #c81623;
+            color: #fff;
+        }
+
+        .tab_body .selected {
+            display: block;
+        }
+
+        .item {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="tab">
+        <div class="tab_head">
+            <ul>
+                <li class="current">标题1</li>
+                <li>标题2</li>
+                <li>标题3</li>
+                <li>标题4</li>
+                <li>标题5</li>
+            </ul>
+        </div>
+        <div class="tab_body">
+            <div class="item selected">
+                <p>内容1</p>
+                <p>内容1</p>
+                <p>内容1</p>
+                <p>内容1</p>
+            </div>
+            <div class="item">
+                <p>内容2</p>
+                <p>内容2</p>
+                <p>内容2</p>
+                <p>内容2</p>
+            </div>
+            <div class="item">
+                <p>内容3</p>
+                <p>内容3</p>
+                <p>内容3</p>
+                <p>内容3</p>
+            </div>
+            <div class="item">
+                <p>内容4</p>
+                <p>内容4</p>
+                <p>内容4</p>
+                <p>内容4</p>
+            </div>
+            <div class="item">
+                <p>内容5</p>
+                <p>内容5</p>
+                <p>内容5</p>
+                <p>内容5</p>
+            </div>
+
+        </div>
+    </div>
+    <script>
+        $(function () {
+            $('.tab').tabs({
+                tabHeads: '.tab_head ul li', // tab头
+                tabHeadsClass: 'current', // tab头被选中的css变化
+                tabBody: '.tab_body>div', // tab内容
+                tabBodyClass: 'selected' // tab内容展示与否
+            })
+        });
+    </script>
+</body>
+
+</html>
